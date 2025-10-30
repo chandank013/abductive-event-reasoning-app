@@ -1,0 +1,500 @@
+# ======================================
+# Python
+# ======================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# ======================================
+# Project Specific - Data
+# ======================================
+# Raw data (too large for git)
+data/raw/*.jsonl
+data/raw/*.json
+data/raw/*.csv
+data/raw/*.txt
+data/raw/*.zip
+data/raw/*.tar.gz
+
+# Keep directory structure but ignore contents
+data/raw/*
+!data/raw/.gitkeep
+
+# Processed data
+data/processed/train/*.jsonl
+data/processed/dev/*.jsonl
+data/processed/test/*.jsonl
+data/processed/*/*.json
+data/processed/*/*.pkl
+
+# Keep directory structure
+!data/processed/train/.gitkeep
+!data/processed/dev/.gitkeep
+!data/processed/test/.gitkeep
+
+# Embeddings (large binary files)
+data/embeddings/*.npy
+data/embeddings/*.pkl
+data/embeddings/*.faiss
+data/embeddings/*.index
+data/embeddings/*
+!data/embeddings/.gitkeep
+
+# Temporary data files
+data/tmp/
+data/temp/
+data/cache/
+
+# ======================================
+# Project Specific - Outputs
+# ======================================
+# Model predictions
+outputs/predictions/*.jsonl
+outputs/predictions/*.json
+outputs/predictions/*.csv
+
+# Logs
+outputs/logs/**/*.log
+outputs/logs/**/*.txt
+outputs/logs/*
+!outputs/logs/.gitkeep
+
+# Saved models and checkpoints
+outputs/models/*.pt
+outputs/models/*.pth
+outputs/models/*.bin
+outputs/models/*.h5
+outputs/models/*.ckpt
+outputs/models/fine_tuned/*
+!outputs/models/.gitkeep
+!outputs/models/fine_tuned/.gitkeep
+
+# Results
+outputs/results/*.json
+outputs/results/*.csv
+outputs/results/*.xlsx
+outputs/results/*
+!outputs/results/.gitkeep
+
+# Dashboard cache
+outputs/dashboard_cache/*.pkl
+outputs/dashboard_cache/*.cache
+outputs/dashboard_cache/*.json
+outputs/dashboard_cache/visualizations/*
+!outputs/dashboard_cache/.gitkeep
+
+# Generated reports
+outputs/reports/*.html
+outputs/reports/*.pdf
+outputs/reports/*.docx
+outputs/reports/*
+!outputs/reports/.gitkeep
+
+# ======================================
+# Machine Learning & AI
+# ======================================
+# Model weights and checkpoints
+*.pt
+*.pth
+*.ckpt
+*.pb
+*.h5
+*.hdf5
+*.onnx
+*.tflite
+
+# TensorBoard logs
+runs/
+logs/
+lightning_logs/
+
+# MLflow
+mlruns/
+mlflow.db
+
+# Weights & Biases
+wandb/
+
+# DVC
+.dvc/
+*.dvc
+
+# Experiment tracking
+experiments/**/runs/
+experiments/**/outputs/
+experiments/**/checkpoints/
+
+# ======================================
+# IDE & Editors
+# ======================================
+# VSCode
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+*~
+*.swp
+*.swo
+Session.vim
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ======================================
+# Operating Systems
+# ======================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ======================================
+# API Keys & Secrets
+# ======================================
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.test
+*.env
+
+# API keys and credentials
+**/api_keys.json
+**/credentials.json
+**/secrets.json
+**/config/secrets.yaml
+**/.secrets/
+secrets/
+*.key
+*.pem
+*.crt
+*.cer
+*.p12
+
+# ======================================
+# Streamlit
+# ======================================
+# Streamlit cache
+.streamlit/
+*.streamlit/
+dashboard/.streamlit/secrets.toml
+
+# ======================================
+# Databases
+# ======================================
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# ======================================
+# Compression & Archives
+# ======================================
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bz2
+*.gz
+*.xz
+
+# ======================================
+# Temporary & Misc Files
+# ======================================
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+*~
+
+# Lock files
+*.lock
+.lock
+
+# Node.js (if using any JS tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Docker
+*.dockerignore
+docker-compose.override.yml
+
+# ======================================
+# Project Specific - Custom
+# ======================================
+# Downloaded datasets (keep only scripts)
+temp_dataset/
+dataset_temp/
+download_temp/
+
+# Experimental notebooks (too messy to commit)
+notebooks/experiments/
+notebooks/scratch/
+notebooks/tmp/
+
+# Personal notes and TODO lists
+TODO.txt
+NOTES.txt
+notes/
+personal/
+
+# Generated documentation
+docs/_build/
+docs/generated/
+
+# Benchmark results
+benchmarks/results/
+benchmarks/outputs/
+
+# Large files (use Git LFS if needed)
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wav
+*.mp3
+
+# Cache directories
+.cache/
+__cache__/
+.tmp/
+
+# Profiling data
+*.prof
+*.lprof
+profile_output/
+
+# ============================================================================
+# Keep Important Empty Directories
+# ============================================================================
+# Use .gitkeep files in empty directories you want to keep
+# Example structure (these should NOT be in .gitignore):
+# !data/raw/.gitkeep
+# !data/processed/train/.gitkeep
+# !data/processed/dev/.gitkeep
+# !data/processed/test/.gitkeep
+# !data/embeddings/.gitkeep
+# !outputs/predictions/.gitkeep
+# !outputs/logs/.gitkeep
+# !outputs/models/.gitkeep
+# !outputs/results/.gitkeep
+# !outputs/dashboard_cache/.gitkeep
+# !outputs/reports/.gitkeep
+
+# ============================================================================
+# Optional: Whitelist Specific Files
+# ============================================================================
+# If you need to force-add certain files that match patterns above:
+# !config/model_config.yaml
+# !config/training_config.yaml
+# !data/sample_data.jsonl
