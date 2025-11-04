@@ -21,7 +21,7 @@ def setup_logger(
     
     Args:
         name: Logger name
-        log_level: Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+        log_level: Logging level
         log_dir: Directory to save log files
         console_output: Enable console output
         file_output: Enable file output
@@ -59,7 +59,6 @@ def setup_logger(
         log_dir = Path(log_dir)
         log_dir.mkdir(parents=True, exist_ok=True)
         
-        # Create log file with timestamp
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         log_file = log_dir / f"{name}_{timestamp}.log"
         

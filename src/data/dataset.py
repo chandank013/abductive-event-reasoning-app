@@ -6,7 +6,7 @@ from typing import List, Dict, Optional, Callable
 import torch
 from torch.utils.data import Dataset
 
-from src.data.loder import AERInstance
+from src.data.loader import AERInstance
 from src.utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -40,10 +40,19 @@ class AERDataset(Dataset):
         # Create sample dictionary
         sample = {
             'topic_id': instance.topic_id,
-            'question': instance.question,
+            'uuid': instance.uuid,
+            'target_event': instance.target_event,
             'options': instance.get_options_dict(),
             'answer': instance.answer,
-            'docs': instance.docs
+            'docs': [
+                {
+                    'title': doc.title,
+                    'content': doc.content,
+                    'source': doc.source
+                }
+                for doc in instance.docs
+            ],
+            'topic': instance.topic
         }
         
         # Apply transform if provided
@@ -72,17 +81,21 @@ class AERCollator:
         """
         batched = {
             'topic_ids': [],
-            'questions': [],
+            'uuids': [],
+            'target_events': [],
             'options': [],
             'answers': [],
-            'docs': []
+            'docs': [],
+            'topics': []
         }
         
         for sample in batch:
             batched['topic_ids'].append(sample['topic_id'])
-            batched['questions'].append(sample['question'])
+            batched['uuids'].append(sample['uuid'])
+            batched['target_events'].append(sample['target_event'])
             batched['options'].append(sample['options'])
             batched['answers'].append(sample['answer'])
             batched['docs'].append(sample['docs'])
+            batched['topics'].append(sample['topic'])
         
         return batched

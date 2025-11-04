@@ -127,8 +127,8 @@ class TextPreprocessor:
         processed_doc = {}
         
         for key, value in doc.items():
-            if isinstance(value, str):
-                processed_doc[key] = self.preprocess(value)
+            if isinstance(value, str) and key in ['title', 'content', 'snippet']:
+                processed_doc[key] = self.clean_text(value)
             else:
                 processed_doc[key] = value
         
