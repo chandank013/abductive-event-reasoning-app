@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}Data Explorer - AER System{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1><i class="fas fa-database"></i> Data Explorer</h1>
+        <p class="text-muted">Browse and explore the dataset</p>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Dataset Instances</h5>
+            </div>
+            <div class="card-body">
+                <!-- Filters -->
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="searchBox" placeholder="Search...">
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="topicFilter">
+                            <option value="">All Topics</option>
+                            <option value="1">Brexit</option>
+                            <option value="2">COVID-19</option>
+                            <option value="3">US Capitol</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="answerFilter">
+                            <option value="">All Answers</option>
+                            <option value="single">Single Answer</option>
+                            <option value="multiple">Multiple Answers</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary" onclick="loadData()">
+                            <i class="fas fa-search"></i> Filter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div class="table-responsive">
+                    <table class="table table-hover" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>Topic ID</th>
+                                <th>Target Event</th>
+                                <th>Options</th>
+                                <th>Answer</th>
+                                <th>Documents</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2</td>
+                                <td>Iran issued travel ban...</td>
+                                <td>
+                                    <small>
+                                        A: U.S. closures<br>
+                                        B: COVID-19 lockdowns<br>
+                                        C: COVID-19 lockdowns<br>
+                                        D: Virus identified
+                                    </small>
+                                </td>
+                                <td><span class="badge bg-success">B,C</span></td>
+                                <td>5 docs</td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" onclick="viewInstance(2)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>UK Brexit referendum...</td>
+                                <td>
+                                    <small>
+                                        A: Referendum held<br>
+                                        B: EU negotiations failed<br>
+                                        C: Conservative won<br>
+                                        D: Insufficient info
+                                    </small>
+                                </td>
+                                <td><span class="badge bg-success">A,C</span></td>
+                                <td>8 docs</td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" onclick="viewInstance(1)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function viewInstance(topicId) {
+    alert('Viewing instance: ' + topicId);
+    // TODO: Implement modal or redirect to detail page
+}
+
+function loadData() {
+    const search = document.getElementById('searchBox').value;
+    const topic = document.getElementById('topicFilter').value;
+    const answer = document.getElementById('answerFilter').value;
+    
+    console.log('Filtering:', {search, topic, answer});
+    // TODO: Implement AJAX call to load filtered data
+}
+</script>
+{% endblock %}

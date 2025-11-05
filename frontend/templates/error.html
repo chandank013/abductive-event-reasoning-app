@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Error {{ error_code }} - AER System{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 text-center">
+        <div class="error-page py-5">
+            <h1 class="display-1 text-muted">{{ error_code }}</h1>
+            <h2 class="mb-4">{{ error_message }}</h2>
+            <p class="lead text-muted">
+                {% if error_code == 404 %}
+                    The page you're looking for doesn't exist.
+                {% elif error_code == 500 %}
+                    Something went wrong on our end. We're working on it!
+                {% elif error_code == 413 %}
+                    The file you're trying to upload is too large.
+                {% else %}
+                    An error occurred.
+                {% endif %}
+            </p>
+            <a href="{{ url_for('web.index') }}" class="btn btn-primary btn-lg">
+                <i class="fas fa-home"></i> Go Home
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
