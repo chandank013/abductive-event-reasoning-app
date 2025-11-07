@@ -1,0 +1,64 @@
+{
+  "evaluation_date": "2025-11-07T21:04:52.640191",
+  "num_predictions": 200,
+  "num_matched": 200,
+  "num_missing_gt": 0,
+  "metrics": {
+    "num_predictions": 200,
+    "accuracy": 0.285,
+    "exact_match": 0.165,
+    "partial_match": 0.24,
+    "per_option": {
+      "A": {
+        "precision": 0.405,
+        "recall": 1.0,
+        "f1": 0.5765124555160143,
+        "support": 81
+      },
+      "B": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 86
+      },
+      "C": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 73
+      },
+      "D": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 71
+      }
+    },
+    "confusion_matrix": {
+      "single_D_to_single_A": 27,
+      "single_C_to_single_A": 23,
+      "single_B_to_single_A": 34,
+      "multiple_to_single_A": 83,
+      "single_A_to_single_A": 33
+    },
+    "prediction_distribution": {
+      "A": 200
+    },
+    "gold_distribution": {
+      "D": 27,
+      "C": 23,
+      "B": 34,
+      "B,D": 8,
+      "A": 33,
+      "A,C": 10,
+      "A,D": 8,
+      "A,C,D": 5,
+      "A,B,C": 8,
+      "B,C": 14,
+      "A,B": 7,
+      "B,C,D": 5,
+      "C,D": 8,
+      "A,B,D": 10
+    }
+  }
+}

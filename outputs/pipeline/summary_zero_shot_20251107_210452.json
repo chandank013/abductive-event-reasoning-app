@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-11-07T21:04:52.687150",
+  "config": {
+    "data_dir": "data/sample",
+    "model": "mock",
+    "strategy": "zero_shot",
+    "num_instances": 200
+  },
+  "performance": {
+    "accuracy": 0.285,
+    "exact_match": 0.165,
+    "partial_match": 0.24,
+    "time_per_instance": 0.0013868150000000002
+  },
+  "model_stats": {
+    "total_requests": 200,
+    "cache_hits": 200,
+    "cache_misses": 0,
+    "cache_hit_rate": 1.0
+  },
+  "error_summary": {
+    "num_correct": 33,
+    "num_partial": 48,
+    "num_wrong": 119
+  },
+  "files": {
+    "predictions": "outputs\\pipeline\\predictions_zero_shot_20251107_210452.jsonl",
+    "evaluation": "outputs\\pipeline\\evaluation_zero_shot_20251107_210452.json",
+    "error_analysis": "outputs\\pipeline\\error_analysis_zero_shot_20251107_210452.json"
+  }
+}

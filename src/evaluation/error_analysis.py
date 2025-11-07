@@ -32,7 +32,7 @@ class ErrorAnalyzer:
             predictions: Prediction dictionaries
             
         Returns:
-            Error analysis results
+            Error analysis results (JSON-serializable)
         """
         logger.info(f"Analyzing errors for {len(predictions)} predictions")
         
@@ -55,12 +55,15 @@ class ErrorAnalyzer:
             
             score = calculate_score(pred['prediction'], instance.golden_answer)
             
+            # Store serializable entry (no AERInstance objects)
             entry = {
                 'uuid': uuid,
-                'instance': instance,
+                'target_event': instance.target_event,
                 'prediction': pred['prediction'],
                 'gold': instance.golden_answer,
-                'score': score
+                'score': score,
+                'topic_id': instance.topic_id,
+                'topic': instance.topic
             }
             
             if score == 1.0:
@@ -76,8 +79,8 @@ class ErrorAnalyzer:
         # Analyze by answer type
         by_answer_type = self._analyze_by_answer_type(correct, partial, wrong)
         
-        # Analyze by topic
-        by_topic = self._analyze_by_topic(correct, partial, wrong)
+        # Analyze by topic (using serialized entries)
+        by_topic = self._analyze_by_topic_serialized(correct, partial, wrong)
         
         results = {
             'num_correct': len(correct),
@@ -86,7 +89,7 @@ class ErrorAnalyzer:
             'error_patterns': error_patterns,
             'by_answer_type': by_answer_type,
             'by_topic': by_topic,
-            'sample_errors': wrong[:5]  # Sample of errors
+            'sample_errors': wrong[:5]  # Sample of errors (now serializable)
         }
         
         return results
@@ -179,25 +182,25 @@ class ErrorAnalyzer:
         
         return results
     
-    def _analyze_by_topic(
+    def _analyze_by_topic_serialized(
         self,
         correct: List[Dict],
         partial: List[Dict],
         wrong: List[Dict]
     ) -> Dict:
-        """Analyze performance by topic"""
+        """Analyze performance by topic (using serialized entries)"""
         topics = defaultdict(lambda: {'correct': 0, 'partial': 0, 'wrong': 0})
         
         for entry in correct:
-            topic_id = entry['instance'].topic_id
+            topic_id = entry['topic_id']
             topics[topic_id]['correct'] += 1
         
         for entry in partial:
-            topic_id = entry['instance'].topic_id
+            topic_id = entry['topic_id']
             topics[topic_id]['partial'] += 1
         
         for entry in wrong:
-            topic_id = entry['instance'].topic_id
+            topic_id = entry['topic_id']
             topics[topic_id]['wrong'] += 1
         
         # Calculate accuracy per topic
@@ -205,7 +208,7 @@ class ErrorAnalyzer:
         for topic_id, counts in topics.items():
             total = sum(counts.values())
             accuracy = (counts['correct'] + 0.5 * counts['partial']) / total if total > 0 else 0
-            results[topic_id] = {
+            results[str(topic_id)] = {  # Convert to string for JSON
                 **counts,
                 'total': total,
                 'accuracy': accuracy
@@ -231,14 +234,22 @@ class ErrorAnalyzer:
         print(f"  Over-predicted: {patterns['over_predicted']}")
         print(f"  Under-predicted: {patterns['under_predicted']}")
         
-        print(f"\n  Most common confusions:")
-        for confusion, count in patterns['most_common_confusions']:
-            print(f"    {confusion}: {count}")
+        if patterns['most_common_confusions']:
+            print(f"\n  Most common confusions:")
+            for confusion, count in patterns['most_common_confusions']:
+                print(f"    {confusion}: {count}")
         
         print(f"\n📈 Performance by Answer Type:")
         for answer_type, metrics in analysis['by_answer_type'].items():
             print(f"  {answer_type}:")
             print(f"    Accuracy: {metrics['accuracy']:.4f}")
             print(f"    Correct: {metrics['correct']}, Partial: {metrics['partial']}, Wrong: {metrics['wrong']}")
+        
+        if analysis.get('sample_errors'):
+            print(f"\n🔍 Sample Errors:")
+            for i, error in enumerate(analysis['sample_errors'][:3], 1):
+                print(f"\n  Error {i}:")
+                print(f"    Event: {error['target_event'][:60]}...")
+                print(f"    Predicted: {error['prediction']}, Gold: {error['gold']}")
         
         print("=" * 70)

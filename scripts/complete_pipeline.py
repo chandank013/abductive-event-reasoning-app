@@ -141,8 +141,25 @@ def run_pipeline(
     
     # Save error analysis
     error_file = output_path / f'error_analysis_{strategy}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json'
-    save_json(error_analysis, str(error_file))
-    print(f"✓ Error analysis saved: {error_file}")
+    # Make error analysis JSON-serializable
+    serializable_analysis = {
+        'num_correct': error_analysis['num_correct'],
+        'num_partial': error_analysis['num_partial'],
+        'num_wrong': error_analysis['num_wrong'],
+        'error_patterns': error_analysis['error_patterns'],
+        'by_answer_type': error_analysis['by_answer_type'],
+        'by_topic': {str(k): v for k, v in error_analysis['by_topic'].items()},
+        'sample_errors': [
+            {
+                'uuid': e['uuid'],
+                'prediction': e['prediction'],
+                'gold': e['gold'],
+                'score': e['score']
+            }
+            for e in error_analysis.get('sample_errors', [])
+        ]
+    }
+    save_json(serializable_analysis, str(error_file))
     
     # Print error analysis
     analyzer.print_analysis(error_analysis)
