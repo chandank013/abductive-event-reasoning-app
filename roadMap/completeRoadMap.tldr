@@ -48,8 +48,8 @@
 			"typeName": "page"
 		},
 		{
-			"x": -4649.916463128849,
-			"y": 58.326751708984375,
+			"x": -7913.5450550057085,
+			"y": -28290.55186178253,
 			"rotation": 0,
 			"isLocked": false,
 			"opacity": 1,
@@ -59,11 +59,11 @@
 			"props": {
 				"color": "black",
 				"size": "m",
-				"w": 723.8939666748047,
+				"w": 1055.8788998680038,
 				"font": "draw",
 				"textAlign": "start",
 				"autoSize": false,
-				"scale": 7.618776067153112,
+				"scale": 12.327392561081956,
 				"richText": {
 					"type": "doc",
 					"content": [
@@ -3791,9 +3791,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": -4681.627268078662,
-			"y": 9338.824971797132,
-			"lastActivityTimestamp": 1762335283873,
+			"x": -3032.0245067237483,
+			"y": -27515.642961557885,
+			"lastActivityTimestamp": 1762353935922,
 			"meta": {}
 		},
 		{
@@ -3803,7 +3803,7 @@
 			"brush": null,
 			"scribbles": [],
 			"cursor": {
-				"type": "nesw-resize",
+				"type": "default",
 				"rotation": 0
 			},
 			"isFocusMode": false,
@@ -3857,9 +3857,9 @@
 			"typeName": "instance_page_state"
 		},
 		{
-			"x": 5986.474371437534,
-			"y": -3431.8521333951576,
-			"z": 0.0934665496560078,
+			"x": 12430.258759653436,
+			"y": 31255.44673353054,
+			"z": 0.05,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"

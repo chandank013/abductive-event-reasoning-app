@@ -1,0 +1,38 @@
+# Prompt Templates Configuration
+
+templates:
+  zero_shot_simple:
+    description: "Simple zero-shot prompt without context"
+    use_documents: false
+    max_tokens: 10
+    
+  zero_shot_context:
+    description: "Zero-shot with context documents"
+    use_documents: true
+    max_docs: 5
+    max_doc_length: 500
+    max_tokens: 10
+    
+  few_shot:
+    description: "Few-shot learning with examples"
+    use_documents: true
+    num_examples: 3
+    example_selection: "random"  # random, similar, diverse
+    max_tokens: 10
+    
+  chain_of_thought:
+    description: "Chain-of-thought reasoning"
+    use_documents: true
+    max_docs: 5
+    max_tokens: 200
+    
+  abductive:
+    description: "Abductive reasoning prompt"
+    use_documents: true
+    max_docs: 5
+    max_tokens: 100
+
+# Default settings
+default_template: "zero_shot_context"
+default_temperature: 0.3
+default_max_tokens: 1000

@@ -1,0 +1,123 @@
+{
+  "num_correct": 33,
+  "num_partial": 48,
+  "num_wrong": 119,
+  "error_patterns": {
+    "predicted_D_when_not_D": 0,
+    "missed_D": 71,
+    "over_predicted": 0,
+    "under_predicted": 83,
+    "most_common_confusions": [
+      [
+        "A_for_B",
+        61
+      ],
+      [
+        "A_for_C",
+        50
+      ],
+      [
+        "A_for_D",
+        48
+      ]
+    ]
+  },
+  "by_answer_type": {
+    "single": {
+      "correct": 33,
+      "partial": 0,
+      "wrong": 57,
+      "total": 90,
+      "accuracy": 0.36666666666666664
+    },
+    "multiple": {
+      "correct": 0,
+      "partial": 25,
+      "wrong": 14,
+      "total": 39,
+      "accuracy": 0.32051282051282054
+    },
+    "insufficient_info": {
+      "correct": 0,
+      "partial": 23,
+      "wrong": 48,
+      "total": 71,
+      "accuracy": 0.1619718309859155
+    }
+  },
+  "by_topic": {
+    "10": {
+      "correct": 9,
+      "partial": 1,
+      "wrong": 14,
+      "total": 24,
+      "accuracy": 0.3958333333333333
+    },
+    "7": {
+      "correct": 3,
+      "partial": 10,
+      "wrong": 13,
+      "total": 26,
+      "accuracy": 0.3076923076923077
+    },
+    "9": {
+      "correct": 1,
+      "partial": 0,
+      "wrong": 11,
+      "total": 12,
+      "accuracy": 0.08333333333333333
+    },
+    "2": {
+      "correct": 4,
+      "partial": 5,
+      "wrong": 16,
+      "total": 25,
+      "accuracy": 0.26
+    },
+    "3": {
+      "correct": 7,
+      "partial": 16,
+      "wrong": 22,
+      "total": 45,
+      "accuracy": 0.3333333333333333
+    },
+    "1": {
+      "correct": 5,
+      "partial": 7,
+      "wrong": 16,
+      "total": 28,
+      "accuracy": 0.30357142857142855
+    },
+    "5": {
+      "correct": 2,
+      "partial": 0,
+      "wrong": 5,
+      "total": 7,
+      "accuracy": 0.2857142857142857
+    },
+    "4": {
+      "correct": 2,
+      "partial": 2,
+      "wrong": 11,
+      "total": 15,
+      "accuracy": 0.2
+    },
+    "8": {
+      "correct": 0,
+      "partial": 7,
+      "wrong": 6,
+      "total": 13,
+      "accuracy": 0.2692307692307692
+    },
+    "6": {
+      "correct": 0,
+      "partial": 0,
+      "wrong": 5,
+      "total": 5,
+      "accuracy": 0.0
+    }
+  },
+  "sample_errors": [
+    {
+      "uuid": "02777771-93de-450d-9a16-b08b25f2e2c8",
+      "instance": 

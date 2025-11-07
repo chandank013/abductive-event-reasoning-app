@@ -1,0 +1,12 @@
+{
+  "models": [
+    {
+      "name": "test-mock",
+      "model_name": "mock",
+      "temperature": 0.3,
+      "max_tokens": 1000,
+      "cache_responses": true,
+      "default": true
+    }
+  ]
+}
