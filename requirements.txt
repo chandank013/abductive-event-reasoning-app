@@ -1,0 +1,39 @@
+--extra-index-url https://download.pytorch.org/whl/cu121
+
+# Core
+Flask==3.0.0
+Werkzeug==3.0.1
+
+# Deep Learning (GPU)
+torch==2.7.1
+torchvision==0.22.1
+torchaudio==2.7.1
+transformers==4.46.3
+tokenizers==0.20.3
+sentencepiece==0.1.99
+
+# Data Processing
+pandas==2.2.3
+numpy==2.1.3
+scikit-learn==1.5.2
+
+# Visualization
+matplotlib==3.9.2
+seaborn==0.13.2
+
+# Progress bar
+tqdm==4.67.1
+
+# ML
+scipy==1.14.1
+
+# Web Server
+gunicorn==23.0.0
+
+# Utilities
+python-dotenv==1.0.1
+
+# Jupyter
+jupyter==1.0.0
+ipykernel==6.27.1
+notebook==7.0.6
